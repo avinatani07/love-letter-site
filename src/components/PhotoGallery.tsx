@@ -7,7 +7,6 @@ const PhotoGallery = () => {
   const memories = [
     {
       image: birthdayGirl1,
-      
       title: "Beautiful You",
       description: "Your smile lights up my world every single day"
     },
@@ -50,7 +49,7 @@ const PhotoGallery = () => {
                   <img 
                     src={memory.image} 
                     alt={memory.title}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-all duration-700 transform-3d"
+                    className="w-full h-80 object-contain group-hover:scale-110 transition-all duration-700 transform-3d bg-gradient-soft"
                     style={{ transformStyle: 'preserve-3d' }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
