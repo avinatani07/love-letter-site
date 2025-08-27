@@ -7,6 +7,7 @@ const PhotoGallery = () => {
   const memories = [
     {
       image: birthdayGirl1,
+      
       title: "Beautiful You",
       description: "Your smile lights up my world every single day"
     },
