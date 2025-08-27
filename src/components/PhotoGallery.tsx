@@ -1,24 +1,24 @@
 import { Card, CardContent } from "@/components/ui/card";
-import memory1 from "@/assets/memory-1.jpg";
-import memory2 from "@/assets/memory-2.jpg";
-import memory3 from "@/assets/memory-3.jpg";
+import birthdayGirl1 from "@/assets/birthday-girl-1.jpg";
+import birthdayGirl2 from "@/assets/birthday-girl-2.jpg";
+import birthdayGirl3 from "@/assets/birthday-girl-3.jpg";
 
 const PhotoGallery = () => {
   const memories = [
     {
-      image: memory1,
-      title: "Our Beautiful Journey",
-      description: "Every sunset reminds me of the warmth of your love"
+      image: birthdayGirl1,
+      title: "Beautiful You",
+      description: "Your smile lights up my world every single day"
     },
     {
-      image: memory2,
-      title: "Celebrations Together",
-      description: "Making every moment special, just like you do for me"
+      image: birthdayGirl2,
+      title: "Special Moments",
+      description: "Making wishes come true, just like you do for me"
     },
     {
-      image: memory3,
-      title: "Love in Full Bloom",
-      description: "Like these roses, our love grows more beautiful each day"
+      image: birthdayGirl3,
+      title: "My Beautiful Wife",
+      description: "Every day with you feels like a celebration"
     }
   ];
 
@@ -27,10 +27,10 @@ const PhotoGallery = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="font-script text-5xl md:text-6xl text-gradient mb-6">
-            Our Beautiful Memories
+            Celebrating You
           </h2>
           <p className="font-body text-lg text-muted-foreground max-w-2xl mx-auto">
-            Each photo tells a story of our love, laughter, and the countless moments that make our journey together so precious.
+            Every photo captures the beauty, grace, and joy that you bring into this world. You are absolutely radiant, my love.
           </p>
         </div>
         

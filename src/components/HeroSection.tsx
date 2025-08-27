@@ -20,22 +20,17 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-4 max-w-4xl mx-auto animate-fade-in">
         <h1 className="font-script text-6xl md:text-8xl lg:text-9xl text-gradient mb-6 animate-slide-up">
-          Happy Birthday
+          Surprise!
         </h1>
         <h2 className="font-script text-4xl md:text-6xl text-foreground mb-8 animate-slide-up" style={{ animationDelay: '0.2s' }}>
-          My Beautiful Wife
+          Happy Birthday My Love!
         </h2>
         <p className="font-body text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          Today we celebrate not just another year of your life, but another year of the incredible love, joy, and light you bring into this world. You make every day feel like a celebration.
+          🎉 The gift has been opened and your special day celebration begins! Every moment with you is a treasure, and today we celebrate the most precious gift of all - YOU! 🎉
         </p>
-        <Button 
-          size="lg" 
-          className="bg-gradient-romantic hover:shadow-romantic transition-romantic text-lg px-8 py-4 animate-slide-up" 
-          style={{ animationDelay: '0.6s' }}
-          onClick={() => document.getElementById('memories')?.scrollIntoView({ behavior: 'smooth' })}
-        >
-          Explore Our Memories
-        </Button>
+        <div className="animate-slide-up" style={{ animationDelay: '0.6s' }}>
+          <p className="font-script text-2xl text-gradient mb-4">🎵 Listen to your special birthday song! 🎵</p>
+        </div>
       </div>
     </section>
   );
