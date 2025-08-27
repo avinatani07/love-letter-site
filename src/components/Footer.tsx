@@ -19,10 +19,7 @@ const Footer = () => {
       
       <div className="max-w-4xl mx-auto text-center px-4 relative z-10">
         <p className="font-script text-2xl mb-4 animate-3d-float drop-shadow">
-          Made with endless love
-        </p>
-        <p className="font-body text-sm opacity-90 animate-fade-in" style={{ animationDelay: '0.5s' }}>
-          {new Date().getFullYear()} • A birthday celebration crafted with love
+          Made with endless love by Shubham
         </p>
         <div className="mt-6 flex justify-center space-x-4">
           <div className="w-2 h-2 bg-primary-foreground rounded-full animate-3d-float"></div>
