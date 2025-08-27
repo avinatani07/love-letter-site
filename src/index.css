@@ -132,6 +132,7 @@ All colors MUST be HSL.
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
   }
   
   .bg-gradient-romantic {
@@ -157,6 +158,18 @@ All colors MUST be HSL.
   .transition-romantic {
     transition: var(--transition-romantic);
   }
+  
+  /* 3D Enhancement utilities */
+  .hover-3d:hover {
+    transform: translateY(-8px) rotateX(15deg);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
 }
 
 @layer utilities {
@@ -174,6 +187,26 @@ All colors MUST be HSL.
   
   .animate-gift-open {
     animation: giftOpen 1s ease-out forwards;
+  }
+  
+  .animate-3d-float {
+    animation: float3d 4s ease-in-out infinite;
+  }
+  
+  .animate-sparkle {
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  
+  .animate-rotate-3d {
+    animation: rotate3d 8s linear infinite;
+  }
+  
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .transform-3d {
+    transform-style: preserve-3d;
   }
 }
 
@@ -196,4 +229,45 @@ All colors MUST be HSL.
   0% { transform: scale(1) rotateY(0deg); }
   50% { transform: scale(1.1) rotateY(180deg); }
   100% { transform: scale(0) rotateY(360deg); opacity: 0; }
+}
+
+@keyframes float3d {
+  0%, 100% { 
+    transform: translateY(0px) rotateX(0deg) rotateY(0deg); 
+  }
+  25% { 
+    transform: translateY(-15px) rotateX(5deg) rotateY(5deg); 
+  }
+  50% { 
+    transform: translateY(-10px) rotateX(0deg) rotateY(10deg); 
+  }
+  75% { 
+    transform: translateY(-15px) rotateX(-5deg) rotateY(5deg); 
+  }
+}
+
+@keyframes sparkle {
+  0%, 100% { 
+    opacity: 0.4; 
+    transform: scale(0.8); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2); 
+  }
+}
+
+@keyframes rotate3d {
+  0% { 
+    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg); 
+  }
+  33% { 
+    transform: rotateX(15deg) rotateY(120deg) rotateZ(0deg); 
+  }
+  66% { 
+    transform: rotateX(-10deg) rotateY(240deg) rotateZ(5deg); 
+  }
+  100% { 
+    transform: rotateX(0deg) rotateY(360deg) rotateZ(0deg); 
+  }
 }

@@ -16,7 +16,7 @@ const Index = () => {
   if (!isGiftOpened) {
     return (
       <div className="min-h-screen">
-        <BackgroundMusic />
+        <BackgroundMusic autoPlay={true} />
         <GiftBox onOpen={handleGiftOpen} />
       </div>
     );
@@ -24,7 +24,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <BackgroundMusic />
+      <BackgroundMusic autoPlay={true} />
       <HeroSection />
       <PhotoGallery />
       <BirthdayMessage />

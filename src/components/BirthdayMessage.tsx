@@ -2,15 +2,37 @@ import { Card, CardContent } from "@/components/ui/card";
 
 const BirthdayMessage = () => {
   return (
-    <section className="py-20 px-4 bg-background">
-      <div className="max-w-4xl mx-auto">
-        <Card className="shadow-romantic bg-card/90 backdrop-blur-sm border-border/50 animate-fade-in">
-          <CardContent className="p-12">
+    <section className="py-20 px-4 bg-background relative overflow-hidden">
+      {/* Background magical particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {[...Array(15)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-rose-gold rounded-full animate-sparkle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 8}s`,
+              opacity: Math.random() * 0.4 + 0.1
+            }}
+          ></div>
+        ))}
+      </div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
+        <Card className="shadow-romantic bg-card/95 backdrop-blur-sm border-border/50 animate-fade-in perspective-1000 transform-3d hover:shadow-xl transition-all duration-700">
+          <CardContent className="p-12 relative overflow-hidden">
+            {/* Decorative corner elements */}
+            <div className="absolute top-4 left-4 w-3 h-3 bg-rose-gold rounded-full animate-sparkle opacity-60"></div>
+            <div className="absolute top-4 right-4 w-2 h-2 bg-warm-gold rounded-full animate-sparkle opacity-70" style={{ animationDelay: '1s' }}></div>
+            <div className="absolute bottom-4 left-4 w-2 h-2 bg-blush rounded-full animate-sparkle opacity-50" style={{ animationDelay: '2s' }}></div>
+            <div className="absolute bottom-4 right-4 w-3 h-3 bg-cream rounded-full animate-sparkle opacity-80" style={{ animationDelay: '0.5s' }}></div>
+            
             <div className="text-center mb-8">
-              <h2 className="font-script text-5xl md:text-6xl text-gradient mb-4">
+              <h2 className="font-script text-5xl md:text-6xl text-gradient mb-4 animate-3d-float">
                 A Message From My Heart
               </h2>
-              <div className="w-24 h-0.5 bg-gradient-romantic mx-auto"></div>
+              <div className="w-24 h-0.5 bg-gradient-romantic mx-auto animate-fade-in" style={{ animationDelay: '0.3s' }}></div>
             </div>
             
             <div className="space-y-6 font-body text-lg leading-relaxed text-foreground">

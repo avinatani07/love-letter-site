@@ -2,18 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import { Volume2, VolumeX } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const BackgroundMusic = () => {
+interface BackgroundMusicProps {
+  autoPlay?: boolean;
+}
+
+const BackgroundMusic = ({ autoPlay = true }: BackgroundMusicProps) => {
   const audioContextRef = useRef<AudioContext | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [isMuted, setIsMuted] = useState(false);
 
   const createBirthdayTune = () => {
-    if (!audioContextRef.current) return;
+    if (!audioContextRef.current || isMuted) return;
 
     const ctx = audioContextRef.current;
-    const duration = 0.5;
     
-    // Happy Birthday melody notes (simplified)
+    // Happy Birthday melody notes (enhanced version)
     const melody = [
       // "Happy Birthday to You"
       { note: 261.63, duration: 0.5 }, // C
@@ -31,8 +34,17 @@ const BackgroundMusic = () => {
       { note: 392.00, duration: 0.7 }, // G
       { note: 349.23, duration: 1.0 }, // F
       
+      // "Happy Birthday Dear..."
+      { note: 261.63, duration: 0.5 }, // C
+      { note: 261.63, duration: 0.3 }, // C
+      { note: 523.25, duration: 0.7 }, // C (octave)
+      { note: 440.00, duration: 0.7 }, // A
+      { note: 349.23, duration: 0.7 }, // F
+      { note: 329.63, duration: 0.7 }, // E
+      { note: 293.66, duration: 1.0 }, // D
+      
       // Rest
-      { note: 0, duration: 0.5 },
+      { note: 0, duration: 1.0 },
     ];
 
     let currentTime = ctx.currentTime;
@@ -49,7 +61,7 @@ const BackgroundMusic = () => {
         oscillator.type = 'sine';
         
         gainNode.gain.setValueAtTime(0, currentTime);
-        gainNode.gain.linearRampToValueAtTime(0.1, currentTime + 0.01);
+        gainNode.gain.linearRampToValueAtTime(0.15, currentTime + 0.01);
         gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + duration);
         
         oscillator.start(currentTime);
@@ -64,7 +76,7 @@ const BackgroundMusic = () => {
       if (isPlaying) {
         createBirthdayTune();
       }
-    }, currentTime * 1000 - ctx.currentTime * 1000 + 2000); // 2 second pause between loops
+    }, (currentTime - ctx.currentTime) * 1000 + 3000); // 3 second pause between loops
   };
 
   const startMusic = () => {
@@ -89,6 +101,17 @@ const BackgroundMusic = () => {
   };
 
   useEffect(() => {
+    if (autoPlay) {
+      // Small delay to ensure audio context is ready
+      const timer = setTimeout(() => {
+        startMusic();
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [autoPlay]);
+
+  useEffect(() => {
     return () => {
       if (audioContextRef.current) {
         audioContextRef.current.close();
@@ -102,16 +125,16 @@ const BackgroundMusic = () => {
         onClick={isPlaying ? stopMusic : startMusic}
         variant="secondary"
         size="sm"
-        className="shadow-soft"
+        className="shadow-soft bg-card/80 backdrop-blur-sm border-border/50 hover:shadow-romantic transition-romantic"
       >
-        {isPlaying ? "Stop Music" : "Play Music"}
+        {isPlaying ? "🔇 Stop" : "🎵 Play"}
       </Button>
       {isPlaying && (
         <Button
           onClick={toggleMute}
           variant="secondary"
           size="sm"
-          className="shadow-soft"
+          className="shadow-soft bg-card/80 backdrop-blur-sm border-border/50 hover:shadow-romantic transition-romantic"
         >
           {isMuted ? <VolumeX size={16} /> : <Volume2 size={16} />}
         </Button>
