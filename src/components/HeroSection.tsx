@@ -6,7 +6,7 @@ const HeroSection = () => {
     <section className="min-h-screen relative flex items-center justify-center overflow-hidden perspective-1000">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat transform-3d"
+        className="absolute inset-0 bg-contain bg-center bg-no-repeat transform-3d"
         style={{ backgroundImage: `url(${heroBackground})` }}
       >
         <div className="absolute inset-0 bg-gradient-hero"></div>
@@ -41,7 +41,7 @@ const HeroSection = () => {
           Surprise!
         </h1>
         <h2 className="font-script text-4xl md:text-6xl text-foreground mb-8 animate-slide-up animate-3d-float drop-shadow" style={{ animationDelay: '0.2s' }}>
-          Happy Birthday My Love!
+          Happy Birthday My Love Nisha!
         </h2>
         <p className="font-body text-lg md:text-xl text-muted-foreground mb-12 max-w-2xl mx-auto leading-relaxed animate-slide-up" style={{ animationDelay: '0.4s' }}>
           🎉 The gift has been opened and your special day celebration begins! Every moment with you is a treasure, and today we celebrate the most precious gift of all - YOU! 🎉
